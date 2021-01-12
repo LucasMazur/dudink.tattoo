@@ -1,0 +1,88 @@
+.comodo h1 {
+    color: black;
+    display: flex;
+}
+
+.buttonsContainer {
+    padding: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonsContainer button {
+    width: 100%;
+    height: 5rem;
+    margin: 2rem;
+    border-radius: 2rem;
+}
+
+.addRoom {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 2.5rem;
+}
+
+.addRoom input {
+    width: 30rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    border-color: black;
+    margin-bottom: 2rem;
+    font-size: larger;
+}
+
+.addRoom button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 1.4rem;
+    width: 20%;
+    height: 3.5rem;
+    border: 0;
+    cursor: pointer;
+    background: #3c94dc;
+    border-radius: 2rem;
+    color: white;
+    transition: background-color .2s;
+}
+
+.dinamic-buttons {
+    display: contents;
+}
+
+.dinamic-buttons button {
+    margin-top: 10rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 2.5rem;
+    width: 20%;
+    height: 3.5rem;
+    border: 0;
+    cursor: pointer;
+    border-radius: 2rem;
+}
+
+.float-button-back a img {
+    position: absolute;
+    right: 4rem;
+    bottom: 8rem;
+  
+    z-index: 10;
+  
+    width: 4rem;
+    height: 4rem;
+    background: #3c94dc;
+    border: 0;
+    border-radius: 1rem;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    transition: background-color 200ms;
+
+}
