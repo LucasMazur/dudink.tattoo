@@ -22,14 +22,14 @@ export default () => {
     const [message, setMessage] = useState('Ola, meu nome é ')
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/api/userModel/get").then((response) => {
+        Axios.get("http://192.168.100.39:3001/api/userModel/get").then((response) => {
             setData(response.data)
         })
     }, [dateList])
 
     function submitData() {
         console.log(name, date)    
-        Axios.post("http://localhost:3001/api/userModel/save", {name: name, date: date, body: body, size: size})
+        Axios.post("http://192.168.100.39:3001/api/userModel/save", {name: name, date: date, body: body, size: size})
     }
 
     return (
