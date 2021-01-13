@@ -1,4 +1,5 @@
 .side-bar-manager {
+    grid-area: a;
     width: clamp(15rem, 16vw, 44rem);
     position: fixed;
     height: 100%;
