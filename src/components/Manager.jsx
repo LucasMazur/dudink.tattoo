@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Axios from "axios"
 
-import '../css/Components.css'
-import '../css/sidebarSchedule.css'
+import '../css/AproveClients.css'
+import '../css/sidebarManager.css'
 
 import logo from '../img/logo.svg'
+import check from '../img/check.svg'
+import del from '../img/delete.svg'
 
 export default () => {
 
@@ -29,29 +31,30 @@ export default () => {
     }
 
     return (
-        <div className="page-schedule" id="page-schedule">
-            <div className="side-bar-schedule">
-
-                <div className="logo-titulo-sidebar-schedule">
+        <div className="page-manager" id="page-manager">
+            <div className="side-bar-manager">
+                <div className="logo-titulo-sidebar-manager">
                     <img className="logo" src={logo} alt="logo"/>
                     <strong className="titulo"></strong>
                 </div>
                 <button onClick={() => {window.location.pathname="/"}}
-                        className="back-button-galery" >Voltar
+                        className="back-button-manager" >Voltar
                 </button>
             </div>
-            <>
+            <div className="aproveClients">
                 {dataList.map((val) => {
                     return (
                         console.log(val),
-                        <div className="dinamic-buttons" key={val._id}>
-                            <button onClick={() => {removeData(val._id)}}>
-                                {val.name} | {val.date}
+                        <div className="dinamic-buttons" id="dinamic-buttons" key={val._id}>
+                            <button className="client-button" onClick={() => {removeData(val._id)}}>
+                                <button className="aprove-client" ><img src={check}/></button>
+                                {val.name}
+                                <button className="del-client" ><img src={del}/></button> 
                             </button>
                         </div>
                     )
                 })}
-            </>
+            </div>
         </div>
     )
 }

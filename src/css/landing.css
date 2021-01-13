@@ -27,9 +27,9 @@ aside button img {
 .header-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 50vh  30vh;
+    grid-template-rows: clamp(25vh, 40vh, 50vh)  30vh;
 
-    grid-gap: 5rem;
+    grid-gap: 2rem;
 
     grid-template-areas: "a a"
                          "b c";
