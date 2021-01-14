@@ -3,22 +3,22 @@ import React from 'react'
 import '../css/landing.css'
 
 import logo from '../img/logo.svg'
-import insta from  '../img/insta.svg'
+import insta from  '../img/instagram.svg'
 
 export default () => {
     return (
         <div className="page-landing" id="page-landing">
             <header className="landing animate-up">
                 <aside>
-                    <button>
+                    <a href="https://www.instagram.com/dudink.tattoo/" target="_blank">
                         <img src={insta} alt=""/>
-                    </button>
+                    </a>
                 </aside>
                 <hr/>
                 <div className="header-container">
                     <div className="logo-titulo">
                         <img className="logo" src={logo} alt="logo"/>
-                        <strong className="titulo">Hello World </strong>
+                        <strong className="titulo">Dudink.Tattoo </strong>
                     </div>                    
                     <button onClick={() => {window.location.pathname="/galery"}}
                             className="landing-button galery-button">Visite a galeria</button>

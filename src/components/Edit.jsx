@@ -17,7 +17,7 @@ export default (props) => {
 
     const updateData = (val) => {
         console.log(val)
-        Axios.post("http://172.16.30.171:3001/api/userModel/update", {id: val})
+        Axios.post("https://dudink-tattoo-back.herokuapp.com/api/userModel/update", {id: val})
     }
 
     return (

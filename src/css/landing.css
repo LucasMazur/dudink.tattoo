@@ -11,15 +11,16 @@ aside {
     align-items: center;
 }
 
-aside button {
+aside a {
     height: 4rem;
     width: 4rem;
     display: flex;
     align-items: center;
     border: none;
+    margin-left: 5rem;
 }
 
-aside button img {
+aside a img {
     height: 4rem;
     width: 4rem;
 }
