@@ -3,7 +3,7 @@ import React from 'react'
 import '../css/landing.css'
 
 import logo from '../img/logo.svg'
-import insta from  '../img/instagram.svg'
+import insta from  '../img/insta.png'
 
 export default () => {
     return (
@@ -18,7 +18,7 @@ export default () => {
                 <div className="header-container">
                     <div className="logo-titulo">
                         <img className="logo" src={logo} alt="logo"/>
-                        <strong className="titulo">Dudink.Tattoo </strong>
+                        <strong className="titulo"> </strong>
                     </div>                    
                     <button onClick={() => {window.location.pathname="/galery"}}
                             className="landing-button galery-button">Visite a galeria</button>

@@ -12,6 +12,15 @@
     overflow: hidden;
 }
 
+h1 {
+    grid-area: b;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    font-size: 5rem;
+    font-family: 'Lobster', cursive;
+}
+
 .input-block-edit + .input-block-edit {
     margin-top: 2.4rem;
 }
@@ -62,7 +71,7 @@
 
 .primary-button {
     margin-top: 2.4rem;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
     font-size: 2rem;
 
     width: 100%;
@@ -86,9 +95,34 @@
 }
 
 .primary-button:hover {
-    background: #36cf82;
+    background: #2e9c65;
 }
 
-.primary-button img {
-    margin-right: 1.6rem;
+.primary-button-delete {
+    margin-top: 2.4rem;
+    margin-bottom: 5rem;
+    font-size: 2rem;
+
+    width: 100%;
+    height: 6.4rem;
+    border: 0;
+
+    cursor: pointer;
+
+    background: #dc3c3c;
+
+    border-radius: 2rem;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color .2s;
+
+    text-decoration: none;
+}
+
+.primary-button-delete:hover {
+    background: #fd6969;
 }

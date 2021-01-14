@@ -20,7 +20,7 @@ export default () => {
             <div className="side-bar">
                 <div className="logo-titulo-sidebar">
                     <img className="logo" src={logo} alt="logo"/>
-                    <strong className="titulo">Dudink.Tattoo</strong>
+                    <strong className="titulo"></strong>
                 </div>   
                 <ul>
                     <li onClick={(e) => { 

@@ -21,14 +21,15 @@ export default () => {
     const [message, setMessage] = useState('Ola, meu nome é ')
 
     useEffect(() => {
-        Axios.get("https://dudink-tattoo-back.herokuapp.com/api/userModel/get").then((response) => {
+        Axios.get(" https://dudink-tattoo-back.herokuapp.com/api/userModel/get").then((response) => {
             setData(response.data)
         })
     }, [dateList])
 
-    function submitData() {
-        console.log(name, date)    
-        Axios.post("https://dudink-tattoo-back.herokuapp.com/api/userModel/save", {name: name, date: date, body: body, size: size})
+    function submitData() {   
+        Axios.post(" https://dudink-tattoo-back.herokuapp.com/api/userModel/save", {name: name, date: date, body: body, size: size}).then(() => {
+            window.location.pathname="/schedule"
+        })
     }
 
     return (
@@ -37,7 +38,7 @@ export default () => {
 
                 <div className="logo-titulo-sidebar-schedule">
                     <img className="logo" src={logo} alt="logo"/>
-                    <strong className="titulo">Dudink.Tatoo</strong>
+                    <strong className="titulo"></strong>
                 </div>
                 <FullCalendar 
                      plugins={[ interactionPlugin, dayGridPlugin, listPlugin ]}

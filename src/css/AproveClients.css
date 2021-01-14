@@ -19,7 +19,7 @@
     column-gap: 1rem;
     row-gap: 1rem;
     width: 80%;
-    margin-top: 10rem;
+    margin-top: 15rem;
 }
 
 .dinamic-buttons {
@@ -30,7 +30,7 @@
 
 .dinamic-buttons .client-button {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     width: 85%;
     height: 5rem;
     border: 0;
@@ -39,6 +39,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #000000;
+    color: white;
+}
+
+.dinamic-buttons .client-button:hover {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    width: 85%;
+    height: 5rem;
+    border: 0;
+    cursor: pointer;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3b3b3b;
+    color: white;
 }
 
 .aprove-client {

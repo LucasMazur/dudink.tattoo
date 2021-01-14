@@ -15,39 +15,23 @@ export default () => {
     const [name, setName] = useState('')
     const [body, setBody] = useState('')
     const [size, setSize] = useState('')
+    const [id, setId] = useState('')
 
-    let edit = 0
     const [dataList, setDataList] = useState([])
     const [dataList2, setDataList2] = useState([])
 
     useEffect(() => {
-        Axios.get("https://dudink-tattoo-back.herokuapp.com/api/userModel/get").then((response) => {
+        Axios.get(" https://dudink-tattoo-back.herokuapp.com/api/userModel/get").then((response) => {
             setDataList(response.data)
         })
     }, [dataList])
 
-    // useEffect(() => {
-    //     Axios.get("http://localhost:5500/getdata").then((response) => {
-    //         setDataList(response.data)
-    //     })
-    // }, [dataList2])
-
-    const removeData = (val) => {
-        console.log(val)
-        Axios.post("https://dudink-tattoo-back.herokuapp.com/api/userModel/remove", {del: val})
-    }
-
-    const updateData = (val) => {
-        console.log(val)
-        Axios.post("https://dudink-tattoo-back.herokuapp.com/api/userModel/update", {id: val})
-    }
-
     const editData = (val) => {
-        //console.log(val)
         setName(val.name)
         setDate(val.date)
         setBody(val.body)
         setSize(val.size)
+        setId(val._id)
     }
 
     return (
@@ -55,29 +39,28 @@ export default () => {
             <div className="side-bar-manager">
                 <div className="logo-titulo-sidebar-manager">
                     <img className="logo" src={logo} alt="logo"/>
-                    <strong className="titulo">Dudink.Tattoo</strong>
+                    <strong className="titulo"></strong>
                 </div>
                 <button onClick={() => {window.location.pathname="/"}}
                         className="back-button-manager" >Voltar
                 </button>
             </div>
-            {/* <h1>Gerenciamento de agendamentos</h1> */}
+            <h1>Gerenciamento de Agendamentos</h1>
             <div className="container">
                 <div className="aproveClients">
                     {dataList.map((val) => {
                         return (
-                            console.log(val),
                             <div className="dinamic-buttons" id="dinamic-buttons" key={val._id}>
                                 <button className="client-button" onClick={() => {editData(val)}}>
-                                    <button className="aprove-client" ><img src={check}/></button>
+                                    {/* <button className="aprove-client" ><img src={check}/></button> */}
                                     {val.name}
-                                    <button className="del-client" onClick={() => {removeData(val._id)}} ><img src={del}/></button> 
+                                    {/* <button className="del-client" onClick={() => {removeData(val._id)}} ><img src={del}/></button>  */}
                                 </button>
                             </div>
                         )
                     })}
                 </div>
-                <Edit name={name} date={date} body={body} size={size}  />
+                <Edit name={name} date={date} body={body} size={size} id={id}  />
             </div>
             
         </div>
