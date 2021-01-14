@@ -6,8 +6,6 @@ import '../css/AproveClients.css'
 import '../css/sidebarManager.css'
 
 import logo from '../img/logo.svg'
-import check from '../img/check.svg'
-import del from '../img/delete.svg'
 
 export default () => {
 

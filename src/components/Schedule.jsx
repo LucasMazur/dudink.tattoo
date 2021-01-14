@@ -16,13 +16,12 @@ export default () => {
     const [name, setName] = useState('')
     const [body, setBody] = useState('')
     const [size, setSize] = useState('')
-    const [data, setData] = useState('')
     const [dateList, setDateList] = useState('')
     const [message, setMessage] = useState('Ola, meu nome é ')
 
     useEffect(() => {
         Axios.get(" https://dudink-tattoo-back.herokuapp.com/api/userModel/get").then((response) => {
-            setData(response.data)
+            setDateList(response.data)
         })
     }, [dateList])
 
