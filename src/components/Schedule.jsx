@@ -12,21 +12,31 @@ import logo from '../img/logo.svg'
 import whatsapp from '../img/whatsapp.svg'
 
 export default () => {
+    let myVar = []
     const [date, setDate] = useState('')
+    const [hour, setHour] = useState('')
     const [name, setName] = useState('')
     const [body, setBody] = useState('')
     const [size, setSize] = useState('')
     const [dateList, setDateList] = useState('')
+    const [dateList2, setDateList2] = useState('')
     const [message, setMessage] = useState('Ola, meu nome é ')
 
     useEffect(() => {
-        Axios.get(" https://dudink-tattoo-back.herokuapp.com/api/userModel/get").then((response) => {
-            setDateList(response.data)
+        Axios.get("http://172.16.30.171:3001/api/userModel/get").then((response) => {
+            let size = response.data.length
+            for (let x = 0; x < size; x++) {
+                myVar = [ ...myVar,
+                    {backgroundColor:'#ff0202', date:response.data[x].date}
+                ]
+            }
+            setDateList(myVar)
         })
-    }, [dateList])
+    }, [dateList2])
 
-    function submitData() {   
-        Axios.post(" https://dudink-tattoo-back.herokuapp.com/api/userModel/save", {name: name, date: date, body: body, size: size}).then(() => {
+    function submitData() {
+        //console.log(date)
+        Axios.post("http://172.16.30.171:3001/api/userModel/save", {name: name, date: date, body: body, size: size}).then(() => {
             window.location.pathname="/schedule"
         })
     }
@@ -42,7 +52,7 @@ export default () => {
                 <FullCalendar 
                      plugins={[ interactionPlugin, dayGridPlugin, listPlugin ]}
                      initialView="dayGridMonth"
-                     //events={}
+                     events={dateList}
                       selectable="true"
                       dateClick={( e ) => {
                           const clikedDate = e.date
@@ -54,7 +64,6 @@ export default () => {
                           }
                       }}
                 />
-                {/* <input type="date" id="date-pick" onChange={(e) => setDate(e.target.value)}/>         */}
                 <button onClick={() => {window.location.pathname="/"}}
                         className="back-button-galery" >Voltar
                 </button>
@@ -68,6 +77,12 @@ export default () => {
                             <span>Escolha a data ao lado</span>
                         </label>
                         <textarea id="name" type="text" value={date} readOnly required/>
+                    </div>
+                    <div className="input-block">
+                        <label htmlFor="name">Horário</label>
+                        <input id="hour" type="time" onBlur={(e) => { 
+                            setDate(date+"T"+e.target.value+":00")
+                        }} required/>
                     </div>
                     <div className="input-block">
                         <label htmlFor="name">Nome</label>
@@ -86,7 +101,7 @@ export default () => {
                     <div className="input-block">
                         <label htmlFor="name">Tamanho do desenho (em cm)</label>
                         <input id="name" type="text" onBlur={(e) => { 
-                            setMessage(message + ", em um tamanho de aproximadamente " + e.target.value + "cm, no dia " + date.toString())
+                            setMessage(message + ", em um tamanho de aproximadamente " + e.target.value + "cm, no dia " + date.toString() + ", às: " + hour.toString())
                             setSize(e.target.value) 
                         }} required/>
                     </div>

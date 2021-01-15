@@ -13,13 +13,13 @@ export default (props) => {
     const [message, setMessage] = useState('Ola, meu nome é ')
 
     const updateData = (val) => {
-        Axios.post(" https://dudink-tattoo-back.herokuapp.com/api/userModel/update", {name: name, date: date, body, size:size, id: id}).then(() => {
+        Axios.post("http://172.16.30.171:3001/api/userModel/update", {name: name, date: date, body, size:size, id: id}).then(() => {
         window.location.pathname="/manager"
        })        
     }
 
     const removeData = (val) => {
-        Axios.post(" https://dudink-tattoo-back.herokuapp.com/api/userModel/remove", {del: val}).then(() => {
+        Axios.post("http://172.16.30.171:3001/api/userModel/remove", {del: val}).then(() => {
             window.location.pathname="/manager"
         })
     }

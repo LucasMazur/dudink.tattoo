@@ -5,34 +5,48 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'; // for selectable
 import listPlugin from '@fullcalendar/list';
 
+import '../css/Calendar.css'
+
 export default () => {
-    let myVar2 = []
+    let myVar = []
 
     const [dateList, setDateList] = useState()
     const [dateList2, setDateList2] = useState()
+    const [calendarView, setCalendarView] = useState('dayGridMonth')
 
-    const testeVariable = () => {
-        console.log(dateList)
+    const changeView = () => {
+        setCalendarView('listWeek')
     }
 
     useEffect(() => {
-        Axios.get(" https://dudink-tattoo-back.herokuapp.com/api/userModel/get").then((response) => {
+        Axios.get("http://172.16.30.171:3001/api/userModel/get").then((response) => {
             let size = response.data.length
             for (let x = 0; x < size; x++) {
-                myVar2 = [ ...myVar2,
-                    {title: response.data[x].name, date:response.data[x].date}
+                myVar = [ ...myVar,
+                    {title: response.data[x].name, start: response.data[x].date, allDay: false}
                 ]
             }
-            setDateList(myVar2)
+            setDateList(myVar)
         })
     }, [dateList2])
 
     return (
-        <FullCalendar
-            plugins={[ interactionPlugin, dayGridPlugin, listPlugin ]}
-            initialView="dayGridMonth"
-            events={dateList}
-            dateClick={( e ) => {testeVariable()}}
-        />
+        <div className="main-container">
+            <h1>Meus Agendamentos</h1>
+            <div className="calendar-container">
+                <FullCalendar
+                    plugins={[ interactionPlugin, dayGridPlugin, listPlugin ]}
+                    initialView='dayGridMonth'
+                    headerToolbar={{
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth,dayGridWeek,dayGridDay,listWeek'
+                        }
+                    }
+                    events={dateList}
+                    //dateClick={( e ) => {testeVariable()}}
+                />
+            </div>
+        </div>
     )
 }

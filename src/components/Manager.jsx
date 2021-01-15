@@ -19,7 +19,7 @@ export default () => {
     const [dataList2, setDataList2] = useState([])
 
     useEffect(() => {
-        Axios.get(" https://dudink-tattoo-back.herokuapp.com/api/userModel/get").then((response) => {
+        Axios.get("http://172.16.30.171:3001/api/userModel/get").then((response) => {
             setDataList(response.data)
         })
     }, [dataList])
