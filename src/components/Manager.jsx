@@ -39,9 +39,17 @@ export default () => {
                     <img className="logo" src={logo} alt="logo"/>
                     <strong className="titulo"></strong>
                 </div>
-                <button onClick={() => {window.location.pathname="/"}}
-                        className="back-button-manager" >Voltar
-                </button>
+                <div className="sidebar-manager-buttons">
+                    <button onClick={() => {window.location.pathname="/"}}
+                            className="back-button-manager" >Voltar
+                    </button>
+                    <button onClick={() => {window.location.pathname="/calendar"}}
+                        className="back-button-manager">Calendario
+                    </button>
+                    <button onClick={() => {window.location.pathname="/addImages"}}
+                        className="back-button-manager">Imagens
+                    </button>
+                </div>
             </div>
             <h1>Gerenciamento de Agendamentos</h1>
             <div className="container">

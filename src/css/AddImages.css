@@ -1,0 +1,14 @@
+#page-addimages {
+    display: grid;
+    grid-template-areas: "a b";
+    width: 100%;
+    height: 100%;
+}
+
+.container-addimages {
+    grid-area: b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}

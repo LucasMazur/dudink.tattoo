@@ -1,4 +1,4 @@
-.side-bar-manager {
+.side-bar-calendar {
     grid-area: a;
     width: clamp(15rem, 25vw, 44rem);
     position: fixed;
@@ -13,25 +13,25 @@
     align-items: center;
 }
 
-.logo-titulo-sidebar-manager {
+.logo-titulo-sidebar-calendar {
     display: flex;
     align-items: center;
 }
 
-.logo-titulo-sidebar-manager img {
+.logo-titulo-sidebar-calendar img {
     width: 5rem;
     height: 5rem;
     margin-right: 1rem;
 }
 
-.logo-titulo-sidebar-manager strong {
+.logo-titulo-sidebar-calendar strong {
     font-size: 3rem;
     font-family: 'Lobster', cursive;
 }
 
-.back-button-manager {
-    width: 7rem;
-    height: 7rem;
+.back-button-calendar {
+    width: 5rem;
+    height: 5rem;
     background-color: black;
     color: white;
     cursor: pointer;

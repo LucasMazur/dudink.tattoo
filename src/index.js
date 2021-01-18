@@ -6,6 +6,7 @@ import Landing from './components/Landing';
 import Galery from './components/Galery';
 import Manager from './components/Manager';
 import Calendar from './components/Calendar';
+import addImages from './components/AddImages';
 
 import './index.css'
 
@@ -17,6 +18,7 @@ ReactDOM.render(
         <Route path="/galery" component={Galery} />
         <Route path="/manager" component={Manager} />
         <Route path="/calendar" component={Calendar} />
+        <Route path="/addimages" component={addImages} />
       </Switch>
   </BrowserRouter>,
   document.getElementById('root')

@@ -10,7 +10,6 @@ export default (props) => {
     const [body, setBody] = useState('0')
     const [size, setSize] = useState('0')
     const id = props.id
-    const [message, setMessage] = useState('Ola, meu nome é ')
 
     const updateData = (val) => {
         Axios.post("http://172.16.30.171:3001/api/userModel/update", {name: name, date: date, body, size:size, id: id}).then(() => {
@@ -36,24 +35,15 @@ export default (props) => {
                 </div>
                 <div className="input-block-edit">
                     <label htmlFor="name">Nome</label>
-                    <input id="name" type="text" defaultValue={props.name} onBlur={(e) => { 
-                        setMessage(message + e.target.value)
-                        setName(e.target.value)
-                    }} required/>
+                    <input id="name" type="text" defaultValue={props.name} onBlur={(e) => {setName(e.target.value)}} required/>
                 </div>
                 <div className="input-block-edit">
                     <label htmlFor="name">Qual parte do corpo quer tatuar</label>
-                    <input id="name" type="text" defaultValue={props.body} onBlur={(e) => { 
-                        setMessage(message + ", gostaria de tatuar o meu " + e.target.value)
-                        setBody(e.target.value)
-                    }} required/>
+                    <input id="name" type="text" defaultValue={props.body} onBlur={(e) => { setBody(e.target.value) }} required/>
                 </div>
                 <div className="input-block-edit">
                     <label htmlFor="name">Tamanho do desenho (em cm)</label>
-                    <input id="name" type="text" defaultValue={props.size} onBlur={(e) => { 
-                        setMessage(message + ", em um tamanho de aproximadamente " + e.target.value + "cm, no dia " + date.toString())
-                        setSize(e.target.value) 
-                    }} required/>
+                    <input id="name" type="text" defaultValue={props.size} onBlur={(e) => { setSize(e.target.value) }} required/>
                 </div>
                 <a  onClick={() => {
                         if ((name !== "") && (date !== "") && (body !== "") && (size !== "")) {
@@ -61,8 +51,8 @@ export default (props) => {
                         } else {
                             alert('Favor Preencher todos os campos')                           
                         }
-                    }
                 }
+                    }
                     type="button"
                     className="primary-button"
                     >

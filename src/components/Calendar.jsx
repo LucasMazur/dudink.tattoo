@@ -5,7 +5,10 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'; // for selectable
 import listPlugin from '@fullcalendar/list';
 
+import '../css/sidebarCalendar.css'
 import '../css/Calendar.css'
+
+import logo from '../img/logo.svg'
 
 export default () => {
     let myVar = []
@@ -32,20 +35,34 @@ export default () => {
 
     return (
         <div className="main-container">
-            <h1>Meus Agendamentos</h1>
-            <div className="calendar-container">
-                <FullCalendar
-                    plugins={[ interactionPlugin, dayGridPlugin, listPlugin ]}
-                    initialView='dayGridMonth'
-                    headerToolbar={{
-                            left: 'prev,next today',
-                            center: 'title',
-                            right: 'dayGridMonth,dayGridWeek,dayGridDay,listWeek'
+            <div className="side-bar-calendar">
+                <div className="logo-titulo-sidebar-calendar">
+                    <img className="logo" src={logo} alt="logo"/>
+                    <strong className="titulo"></strong>
+                </div>
+                <div className="sidebar-calendar-buttons">
+                    <button onClick={() => {window.location.pathname="/manager"}}
+                            className="back-button-calendar" >Voltar
+                    </button>
+                </div>
+            </div>
+            <div className="container-calendar">
+                <div className="main-container-header">
+                    <h1 className="calendar-h1" >Meus Agendamentos</h1>
+                </div>
+                <div className="calendar-container">
+                    <FullCalendar
+                        plugins={[ interactionPlugin, dayGridPlugin, listPlugin ]}
+                        initialView='dayGridMonth'
+                        headerToolbar={{
+                                left: 'prev,next today',
+                                center: 'title',
+                                right: 'dayGridMonth,dayGridWeek,dayGridDay,listWeek'
+                            }
                         }
-                    }
-                    events={dateList}
-                    //dateClick={( e ) => {testeVariable()}}
-                />
+                        events={dateList}
+                    />
+                </div>
             </div>
         </div>
     )
