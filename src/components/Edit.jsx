@@ -12,13 +12,13 @@ export default (props) => {
     const id = props.id
 
     const updateData = (val) => {
-        Axios.post("http://172.16.30.171:3001/api/userModel/update", {name: name, date: date, body, size:size, id: id}).then(() => {
+        Axios.post("http://localhost:3001/api/userModel/update", {name: name, date: date, body, size:size, id: id}).then(() => {
         window.location.pathname="/manager"
        })        
     }
 
     const removeData = (val) => {
-        Axios.post("http://172.16.30.171:3001/api/userModel/remove", {del: val}).then(() => {
+        Axios.post("http://localhost:3001/api/userModel/remove", {del: val}).then(() => {
             window.location.pathname="/manager"
         })
     }

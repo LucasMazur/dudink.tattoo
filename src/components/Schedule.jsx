@@ -19,11 +19,10 @@ export default () => {
     const [body, setBody] = useState('')
     const [size, setSize] = useState('')
     const [dateList, setDateList] = useState('')
-    const [dateList2, setDateList2] = useState('')
     const [message, setMessage] = useState('Ola, meu nome é ')
 
     useEffect(() => {
-        Axios.get("http://172.16.30.171:3001/api/userModel/get").then((response) => {
+        Axios.get("http://localhost:3001/api/client/get").then((response) => {
             let size = response.data.length
             for (let x = 0; x < size; x++) {
                 myVar = [ ...myVar,
@@ -32,11 +31,10 @@ export default () => {
             }
             setDateList(myVar)
         })
-    }, [dateList2])
+    }, [])
 
     function submitData() {
-        //console.log(date)
-        Axios.post("http://172.16.30.171:3001/api/userModel/save", {name: name, date: date, body: body, size: size}).then(() => {
+        Axios.post("http://localhost:3001/api/userModel/save", {name: name, date: date, body: body, size: size}).then(() => {
             window.location.pathname="/schedule"
         })
     }
@@ -44,10 +42,9 @@ export default () => {
     return (
         <div className="page-schedule" id="page-schedule">
             <div className="side-bar-schedule">
-
                 <div className="logo-titulo-sidebar-schedule">
                     <img className="logo" src={logo} alt="logo"/>
-                    <strong className="titulo"></strong>
+                    <strong className="titulo">Dudink.Tattoo</strong>
                 </div>
                 <FullCalendar 
                      plugins={[ interactionPlugin, dayGridPlugin, listPlugin ]}
@@ -55,6 +52,7 @@ export default () => {
                      events={dateList}
                       selectable="true"
                       dateClick={( e ) => {
+                          console.log(e)
                           const clikedDate = e.date
                           const today = (new Date())
                           if (today > clikedDate) {

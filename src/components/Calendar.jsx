@@ -22,7 +22,7 @@ export default () => {
     }
 
     useEffect(() => {
-        Axios.get("http://172.16.30.171:3001/api/userModel/get").then((response) => {
+        Axios.get("http://localhost:3001/api/client/get").then((response) => {
             let size = response.data.length
             for (let x = 0; x < size; x++) {
                 myVar = [ ...myVar,
@@ -38,7 +38,7 @@ export default () => {
             <div className="side-bar-calendar">
                 <div className="logo-titulo-sidebar-calendar">
                     <img className="logo" src={logo} alt="logo"/>
-                    <strong className="titulo"></strong>
+                    <strong className="titulo">Dudink.Tattoo</strong>
                 </div>
                 <div className="sidebar-calendar-buttons">
                     <button onClick={() => {window.location.pathname="/manager"}}

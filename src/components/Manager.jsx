@@ -19,10 +19,10 @@ export default () => {
     const [dataList2, setDataList2] = useState([])
 
     useEffect(() => {
-        Axios.get("http://172.16.30.171:3001/api/userModel/get").then((response) => {
+        Axios.get("http://localhost:3001/api/client/get").then((response) => {
             setDataList(response.data)
         })
-    }, [dataList])
+    }, [])
 
     const editData = (val) => {
         setName(val.name)
@@ -37,7 +37,7 @@ export default () => {
             <div className="side-bar-manager">
                 <div className="logo-titulo-sidebar-manager">
                     <img className="logo" src={logo} alt="logo"/>
-                    <strong className="titulo"></strong>
+                    <strong className="titulo">Dudink.Tattoo</strong>
                 </div>
                 <div className="sidebar-manager-buttons">
                     <button onClick={() => {window.location.pathname="/"}}
@@ -58,9 +58,7 @@ export default () => {
                         return (
                             <div className="dinamic-buttons" id="dinamic-buttons" key={val._id}>
                                 <button className="client-button" onClick={() => {editData(val)}}>
-                                    {/* <button className="aprove-client" ><img src={check}/></button> */}
                                     {val.name}
-                                    {/* <button className="del-client" onClick={() => {removeData(val._id)}} ><img src={del}/></button>  */}
                                 </button>
                             </div>
                         )

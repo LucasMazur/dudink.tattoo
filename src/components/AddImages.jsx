@@ -10,12 +10,14 @@ import logo from '../img/logo.svg'
 
 export default () => {
 
+    const [imageName, setImageName] = useState('')
     const [url, setUrl] = useState('')
     const [style, setStyle] = useState('')
 
     const addImages = () => {
-        Axios.post("http://172.16.30.171:3001/api/imageModel/save", {url: url, style: style}).then(() => {
-        window.location.pathname="/addimages"
+        Axios.post("http://localhost:3001/api/themes/save", {theme: style})
+        Axios.post("http://localhost:3001/api/images/save", {imageName: imageName, url: url, style: style}).then(() => {
+            window.location.pathname="/addImages"
        })        
     }
 
@@ -24,7 +26,7 @@ export default () => {
             <div className="side-bar-addimages">
                 <div className="logo-titulo-sidebar-addimages">
                     <img className="logo" src={logo} alt="logo"/>
-                    <strong className="titulo"></strong>
+                    <strong className="titulo">Dudink.Tattoo</strong>
                 </div>
                 <div className="sidebar-addimages-buttons">
                     <button onClick={() => {window.location.pathname="/manager"}}
@@ -37,6 +39,12 @@ export default () => {
                 <div className="addimages-form">
                     <form action="/" method="get">
                         <div className="input-block-addimages">
+                            <label htmlFor="imageName">
+                                Nome da imagem
+                            </label>
+                            <input type="text" id="imageName" onChange={(e) => setImageName(e.target.value)}/>
+                        </div>
+                        <div className="input-block-addimages">
                             <label htmlFor="URL">
                                 URL da imagem
                             </label>
@@ -46,14 +54,14 @@ export default () => {
                             <label htmlFor="name">Estilo da Tattoo</label>
                             <input list="styles" onChange={(e) => { setStyle(e.target.value) }} required/>
                             <dataList id="styles">
+                                <option value="Temática" />
                                 <option value="Flash" />
                                 <option value="Floral" />
-                                <option value="Pontilhismo" />
-                                <option value="lettering" />
+                                <option value="Escrita" />
                             </dataList>
                         </div>
                         <a  onClick={() => {
-                                if ((url !== "") && (style !== "")) {
+                                if ((url !== "") && (style !== "") && (imageName !== "")) {
                                     addImages()
                                 } else {
                                     alert('Favor Preencher todos os campos')                           
