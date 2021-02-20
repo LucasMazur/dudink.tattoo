@@ -18,10 +18,22 @@ export default () => {
     const [id, setId] = useState('')
 
     const [dataList, setDataList] = useState([])
+    const [finishList, setDataFinish] = useState([])
+    const [totalPrice, setTotalPrice] = useState(0)
+    const [total, setTotal] = useState(0)
 
     useEffect(() => {
         Axios.get(`${process.env.REACT_APP_LINK_API}/client/get`).then((response) => {
             setDataList(response.data)
+        }).then(() => {
+            Axios.get(`${process.env.REACT_APP_LINK_API}/finish/get`).then((response) => {
+                let contador = 0
+                {response.data.map((val) => {
+                    contador = contador + val.price
+                })}
+                setTotalPrice(contador)
+                setTotal(response.data.length)
+            })
         })
     }, [])
 
@@ -69,7 +81,12 @@ export default () => {
                 </div>
                 <Edit name={name} date={date} body={body} size={size} id={id} hour={hour} dateHour={dateHour}  />
             </div>
-            
+            <div className="total-received">
+                <h2>Quantidade de Tattoos Feitas:</h2>
+                <h2 className="total">{total}</h2>              
+                <h2>Quantidade Total de Ganhos:</h2>
+                <h2 className="total">R${totalPrice}</h2>              
+            </div>            
         </div>
     )
 }
