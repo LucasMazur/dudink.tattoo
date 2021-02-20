@@ -14,24 +14,18 @@ export default () => {
     let myVar = []
 
     const [dateList, setDateList] = useState()
-    const [dateList2, setDateList2] = useState()
-    const [calendarView, setCalendarView] = useState('dayGridMonth')
-
-    const changeView = () => {
-        setCalendarView('listWeek')
-    }
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/api/client/get").then((response) => {
+        Axios.get(`${process.env.REACT_APP_LINK_API}/client/get`).then((response) => {
             let size = response.data.length
             for (let x = 0; x < size; x++) {
                 myVar = [ ...myVar,
-                    {title: response.data[x].name, start: response.data[x].date, allDay: false}
+                    {title: response.data[x].name, start: response.data[x].dateHour, allDay: false}
                 ]
             }
             setDateList(myVar)
         })
-    }, [dateList2])
+    }, [])
 
     return (
         <div className="main-container">

@@ -9,23 +9,26 @@ import logo from '../img/logo.svg'
 
 export default () => {
 
+    const [dateHour, setDateHour] = useState('')
     const [date, setDate] = useState('')
+    const [hour, setHour] = useState('')
     const [name, setName] = useState('')
     const [body, setBody] = useState('')
     const [size, setSize] = useState('')
     const [id, setId] = useState('')
 
     const [dataList, setDataList] = useState([])
-    const [dataList2, setDataList2] = useState([])
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/api/client/get").then((response) => {
+        Axios.get(`${process.env.REACT_APP_LINK_API}/client/get`).then((response) => {
             setDataList(response.data)
         })
     }, [])
 
     const editData = (val) => {
         setName(val.name)
+        setDateHour(val.dateHour)
+        setHour(val.hour)
         setDate(val.date)
         setBody(val.body)
         setSize(val.size)
@@ -64,7 +67,7 @@ export default () => {
                         )
                     })}
                 </div>
-                <Edit name={name} date={date} body={body} size={size} id={id}  />
+                <Edit name={name} date={date} body={body} size={size} id={id} hour={hour} dateHour={dateHour}  />
             </div>
             
         </div>

@@ -98,6 +98,35 @@ h1 {
     background: #2e9c65;
 }
 
+.primary-button-finish {
+    margin-top: 2.4rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+
+    width: 100%;
+    height: 6.4rem;
+    border: 0;
+
+    cursor: pointer;
+
+    background: #3ca1dc;
+
+    border-radius: 2rem;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color .2s;
+
+    text-decoration: none;
+}
+
+.primary-button-finish:hover {
+    background: #77b5d8;
+}
+
 .primary-button-delete {
     margin-top: 2.4rem;
     margin-bottom: 5rem;

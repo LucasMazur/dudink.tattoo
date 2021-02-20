@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Axios from "axios"
-import Edit from './Edit'
 
 import '../css/AddImages.css'
 import '../css/sidebarAddImages.css'
@@ -13,10 +12,25 @@ export default () => {
     const [imageName, setImageName] = useState('')
     const [url, setUrl] = useState('')
     const [style, setStyle] = useState('')
+    const [styleList, setStyleList] = useState('')
+
+    useEffect(() => {
+        Axios.get(`${process.env.REACT_APP_LINK_API}/themes/get`).then((response) => {
+            setStyleList(response.data)
+        })
+    }, [])
 
     const addImages = () => {
-        Axios.post("http://localhost:3001/api/themes/save", {theme: style})
-        Axios.post("http://localhost:3001/api/images/save", {imageName: imageName, url: url, style: style}).then(() => {
+        let igual = 0
+        {styleList.map((val) => {
+            if (val.theme === style) {
+                igual = 1
+            }
+        })}
+        if (igual !== 1) {
+            Axios.post(`${process.env.REACT_APP_LINK_API}/themes/save`, {theme: style})
+        }
+        Axios.post(`${process.env.REACT_APP_LINK_API}/images/save`, {imageName: imageName, url: url, style: style}).then(() => {
             window.location.pathname="/addImages"
        })        
     }

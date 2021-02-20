@@ -13,6 +13,7 @@ import whatsapp from '../img/whatsapp.svg'
 
 export default () => {
     let myVar = []
+    const [dateHour, setDateHour] = useState('')
     const [date, setDate] = useState('')
     const [hour, setHour] = useState('')
     const [name, setName] = useState('')
@@ -22,11 +23,11 @@ export default () => {
     const [message, setMessage] = useState('Ola, meu nome é ')
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/api/client/get").then((response) => {
+        Axios.get(`${process.env.REACT_APP_LINK_API}/client/get`).then((response) => {
             let size = response.data.length
             for (let x = 0; x < size; x++) {
                 myVar = [ ...myVar,
-                    {backgroundColor:'#ff0202', date:response.data[x].date}
+                    {backgroundColor:'#ff0202', start: response.data[x].dateHour, allDay: false}
                 ]
             }
             setDateList(myVar)
@@ -34,7 +35,7 @@ export default () => {
     }, [])
 
     function submitData() {
-        Axios.post("http://localhost:3001/api/userModel/save", {name: name, date: date, body: body, size: size}).then(() => {
+        Axios.post(`${process.env.REACT_APP_LINK_API}/client/save`, {name: name, hour: hour, date: date, dateHour: dateHour, body: body, size: size}).then(() => {
             window.location.pathname="/schedule"
         })
     }
@@ -62,6 +63,7 @@ export default () => {
                           }
                       }}
                 />
+                <label style={{ fontSize: 15, color: "red", fontStyle: "bold" }}>MÁXIMO 3 CLIENTES POR DIA!!!</label>
                 <button onClick={() => {window.location.pathname="/"}}
                         className="back-button-galery" >Voltar
                 </button>
@@ -72,14 +74,15 @@ export default () => {
                     <div className="input-block">
                         <label htmlFor="date">
                             Data
-                            <span>Escolha a data ao lado</span>
+                            <span>Escolha a data clicando no calendário ao lado</span>
                         </label>
                         <textarea id="name" type="text" value={date} readOnly required/>
                     </div>
                     <div className="input-block">
                         <label htmlFor="name">Horário</label>
-                        <input id="hour" type="time" onBlur={(e) => { 
-                            setDate(date+"T"+e.target.value+":00")
+                        <input id="hour" type="time" min="15:00" max="20:30" onBlur={(e) => {
+                            setHour(e.target.value)
+                            setDateHour(date+"T"+e.target.value+":00")
                         }} required/>
                     </div>
                     <div className="input-block">
@@ -92,7 +95,7 @@ export default () => {
                     <div className="input-block">
                         <label htmlFor="name">Qual parte do corpo quer tatuar</label>
                         <input id="name" type="text" onBlur={(e) => { 
-                            setMessage(message + ", gostaria de tatuar o meu " + e.target.value)
+                            setMessage(message + ", gostaria de tatuar o(a) meu(minha) " + e.target.value)
                             setBody(e.target.value)
                         }} required/>
                     </div>
@@ -110,7 +113,7 @@ export default () => {
                             alert('Favor Preencher todos os campos')                           
                         }
                         }}
-                        href={`https://api.whatsapp.com/send?1=pt_BR&phone=+5511986867287&text=${message}`} target="_blank"
+                        href={`https://api.whatsapp.com/send?1=pt_BR&phone=+5511911201820&text=${message}`} target="_blank"
                         type="button"
                         className="primary-button">
                         <img src={whatsapp} alt="Chamar no whatsapp" />

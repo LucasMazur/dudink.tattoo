@@ -16,7 +16,7 @@
 .form {
     display: flex;
     width: clamp(20rem, 50rem, 100rem);
-    margin: 2.4rem auto auto clamp(20rem, 60rem, 80rem);
+    margin: 2.4rem auto auto clamp(20rem, 50rem, 80rem);
     background: white;
     border: 1px solid #d3e2e5;
     justify-content: center;
