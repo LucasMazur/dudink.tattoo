@@ -85,7 +85,9 @@ export default () => {
                 <h2>Quantidade de Tattoos Feitas:</h2>
                 <h2 className="total">{total}</h2>              
                 <h2>Quantidade Total de Ganhos:</h2>
-                <h2 className="total">R${totalPrice}</h2>              
+                <h2 className="total">R${totalPrice}</h2>
+                <h2>Quantidade Total do Studio:</h2>
+                <h2 className="total">R${totalPrice * 0,3}</h2>         
             </div>            
         </div>
     )
