@@ -66,7 +66,7 @@ export default () => {
                     </button>
                 </div>
             </div>
-            <h1>Gerenciamento</h1>
+            <h1>Gerenciamento de Agendamentos</h1>
             <div className="container">
                 <div className="aproveClients">
                     {dataList.map((val) => {
