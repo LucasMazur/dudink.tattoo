@@ -66,7 +66,7 @@ export default () => {
                     </button>
                 </div>
             </div>
-            <h1>Gerenciamento de Agendamentos</h1>
+            <h1>Gerenciamento</h1>
             <div className="container">
                 <div className="aproveClients">
                     {dataList.map((val) => {
@@ -87,7 +87,7 @@ export default () => {
                 <h2>Quantidade Total de Ganhos:</h2>
                 <h2 className="total">R${totalPrice}</h2>
                 <h2>Quantidade Total do Studio:</h2>
-                <h2 className="total">R${totalPrice * 0,3}</h2>         
+                <h2 className="total">R${totalPrice * 0.3}</h2>         
             </div>            
         </div>
     )
