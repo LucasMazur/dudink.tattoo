@@ -20,8 +20,8 @@ export default () => {
                         <img className="logo" src={logo} alt="logo"/>
                         <strong className="titulo">Dudink.Tattoo</strong>
                     </div>                    
-                    <button onClick={() => {window.location.pathname="/galery"}}
-                            className="landing-button galery-button">Visite a galeria</button>
+                    {/* <button onClick={() => {window.location.pathname="/galery"}}
+                            className="landing-button galery-button">Visite a galeria</button> */}
                     <button onClick={() => {window.location.pathname="/schedule"}}
                             className="landing-button schedule-button">Agende um horário</button>
                 </div>

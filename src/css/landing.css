@@ -26,24 +26,19 @@ aside a img {
 }
 
 .header-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: clamp(25vh, 40vh, 50vh)  30vh;
-
-    grid-gap: 2rem;
-
-    grid-template-areas: "a a"
-                         "b c";
-
-    justify-items: center;
+    display: flex;
+    height: 80vh;
+    width: 100%;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .logo-titulo {
     display: flex;
-    grid-area:a;
     align-items: center;
     padding: 1rem;
+    margin-bottom: 10rem;
 }
 
 header img {
@@ -58,7 +53,7 @@ header strong {
 }
 
 .landing-button{
-    width: 60%;
+    width: 250px;
     height: 8.4rem;
     border: 0;
 
