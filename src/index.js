@@ -14,7 +14,7 @@ ReactDOM.render(
   <BrowserRouter>
       <Switch>
         <Route path="/" exact={true} component={Landing} />
-        <Route path="/schedule" component={Schedule} />
+        <Route path="/schedule:date" component={Schedule} />
         <Route path="/galery" component={Galery} />
         <Route path="/manager" component={Manager} />
         <Route path="/calendar" component={Calendar} />

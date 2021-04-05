@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin from '@fullcalendar/interaction'; // for selectable
-import listPlugin from '@fullcalendar/list';
+import React, { useState } from 'react'
+// import FullCalendar from '@fullcalendar/react'
+// import dayGridPlugin from '@fullcalendar/daygrid'
+// import interactionPlugin from '@fullcalendar/interaction'; // for selectable
+// import listPlugin from '@fullcalendar/list';
 import Axios from "axios"
+import { Link } from 'react-router-dom'
 
 import '../css/schedule.css'
 import '../css/sidebarSchedule.css'
@@ -11,43 +12,46 @@ import '../css/sidebarSchedule.css'
 import logo from '../img/logo.svg'
 import whatsapp from '../img/whatsapp.svg'
 
-export default () => {
+export default (props) => {
+
+    console.log(props.match.params)
+
     let myVar = []
     const [dateHour, setDateHour] = useState('')
-    const [date, setDate] = useState('')
+    const [date, setDate] = useState(`${props.match.params.date}`)
     const [hour, setHour] = useState('')
     const [name, setName] = useState('')
     const [body, setBody] = useState('')
     const [size, setSize] = useState('')
-    const [dateList, setDateList] = useState('')
+    // const [dateList, setDateList] = useState('')
     const [message, setMessage] = useState('Ola, meu nome é ')
 
-    useEffect(() => {
-        Axios.get(`${process.env.REACT_APP_LINK_DEV}/client/get`).then((response) => {
-            let size = response.data.length
-            for (let x = 0; x < size; x++) {
-                myVar = [ ...myVar,
-                    {backgroundColor:'#ff0202', start: response.data[x].dateHour, allDay: false}
-                ]
-            }
-            setDateList(myVar)
-        })
-    }, [])
+    // useEffect(() => {
+    //     Axios.get(`${process.env.REACT_APP_LINK_DEV}/client/get`).then((response) => {
+    //         let size = response.data.length
+    //         for (let x = 0; x < size; x++) {
+    //             myVar = [ ...myVar,
+    //                 {backgroundColor:'#ff0202', start: response.data[x].dateHour, allDay: false}
+    //             ]
+    //         }
+    //         setDateList(myVar)
+    //     })
+    // }, [])
 
     function submitData() {
         Axios.post(`${process.env.REACT_APP_LINK_DEV}/client/save`, {name: name, hour: hour, date: date, dateHour: dateHour, body: body, size: size}).then(() => {
-            window.location.pathname="/schedule"
+            window.location.pathname="/"
         })
     }
 
     return (
         <div className="page-schedule" id="page-schedule">
-            <div className="side-bar-schedule">
+            {/* <div className="side-bar-schedule">
                 <div className="logo-titulo-sidebar-schedule">
                     <img className="logo" src={logo} alt="logo"/>
                     <strong className="titulo">Dudink.Tattoo</strong>
                 </div>
-                <FullCalendar 
+                <FullCalendar
                      plugins={[ interactionPlugin, dayGridPlugin, listPlugin ]}
                      initialView="dayGridMonth"
                      events={dateList}
@@ -64,10 +68,10 @@ export default () => {
                       }}
                 />
                 <label style={{ fontSize: 15, color: "red", fontStyle: "bold" }}>MÁXIMO 3 CLIENTES POR DIA!!!</label>
-                <button onClick={() => {window.location.pathname="/"}}
-                        className="back-button-galery" >Voltar
-                </button>
-            </div>
+                <Link to='/'>
+                    <button className="back-button-galery" >Voltar </button>
+                </Link>
+            </div> */}
             <div className="form">
                 <form action="/" method="get">
                     <h1>Preencha seus dados</h1>

@@ -1,9 +1,10 @@
 #page-schedule {
+    background: linear-gradient(329.54deg, #F5F5F5 0%, #DCDCDC 100%);
     display: flex;
-    min-height: 100vh;
+    justify-content: center;
 }
 
-.fc {
+/* .fc {
     width: 100%;
     height: 60%;
 }
@@ -11,13 +12,12 @@
 .fc .fc-scrollgrid-section-body table, .fc .fc-scrollgrid-section-footer table {
     border-bottom-style: hidden;
     width: 315px;
-}
+} */
 
 .form {
+    height: auto;
+    width: 50rem;
     display: flex;
-    width: clamp(20rem, 50rem, 100rem);
-    margin: 2.4rem auto auto clamp(20rem, 50rem, 80rem);
-    background: white;
     border: 1px solid #d3e2e5;
     justify-content: center;
     justify-items: center;
@@ -28,31 +28,35 @@
 }
 
 .form h1 {
-    display: flex;
-    justify-content: center;
+    height: auto;
     font-size: 5rem;
     font-family: 'Lobster', cursive;
     color: black;
     margin-bottom: 5rem;
 }
 
-.input-block + .input-block {
-    margin-top: 2.4rem;
+.input-block {
+    height: auto;
 }
 
-.input-block label {
-    display: inline-block;
-    font-size: 2rem;
-    color: #000000;
-    margin-bottom: .8rem;
-    margin-right: .8rem;
-    line-height: 1.5;
+.input-block + .input-block {
+    margin-top: 2.4rem;
 }
 
 .input-block label span {
     font-size: 1.4rem;
     color: #8fa7b3;
     margin-left: 2.4rem;
+    line-height: 1.5;
+}
+
+.input-block label {
+    height: auto;
+    display: inline-block;
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: .8rem;
+    margin-right: .8rem;
     line-height: 1.5;
 }
 
@@ -115,4 +119,5 @@
 
 .primary-button img {
     margin-right: 1.6rem;
+    height: 3rem;
 }
