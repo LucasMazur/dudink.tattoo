@@ -46,15 +46,10 @@ export default () => {
                     </div>
                     <div className="schedule-container">
                         <FullCalendar
-                            eventMouseEnter={console.log("teste")}
                             locale={ptLocale}
                             plugins={[ interactionPlugin, dayGridPlugin, listPlugin ]}
-                            initialView="dayGridWeek"
-                            headerToolbar={{
-                                left: 'prev,next today',
-                                center: 'title',
-                                right: 'dayGridMonth,dayGridWeek,dayGridDay,listWeek'
-                            }}
+                            initialView="dayGridMonth"
+                            headerToolbar={{ left: 'prev,next today', center: 'title', right: 'dayGridMonth,dayGridWeek,dayGridDay,listWeek' }}
                             events={dateList}
                             selectable="true"
                             dateClick={( e ) => {
