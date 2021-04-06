@@ -1,6 +1,7 @@
 #page-landing {
-    background: linear-gradient(329.54deg, #F5F5F5 0%, #DCDCDC 100%);
+    /* background: linear-gradient(329.54deg, #F5F5F5 0%, #DCDCDC 100%); */
     /* height: 100vh; */
+    background: #DCDCDC;
 }
 
 aside {
@@ -17,7 +18,7 @@ aside a {
     display: flex;
     align-items: center;
     border: none;
-    margin-left: 5rem;
+    margin-left: 8rem;
 }
 
 aside a img {
@@ -37,30 +38,32 @@ aside a img {
     height: auto;
     display: flex;
     align-items: center;
-    margin-top: 10rem;
-    margin-bottom: 10rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
 }
 
 header img {
-    height: 20rem;
-    width: 20rem;
-    margin-right: 5rem;
+    height: 15rem;
+    width: 15rem;
+    margin-right: 3rem;
 }
 
 header strong {
     font-family: 'Lobster', cursive;
-    font-size: 10rem;
+    font-size: 8rem;
 }
 
 .schedule-container {
     height: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
 }
 
 .fc {
-    width: 40rem;
+    width: 55rem;
     height: 35rem;
 }
 
@@ -68,17 +71,12 @@ header strong {
     height: 5rem;    
 }
 
-.fc .fc-scrollgrid-section-body table, .fc .fc-scrollgrid-section-footer table {
-    border-bottom-style: hidden;
-    width: 915px;
-}
-
 .date-label {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 5rem;
+    margin-top: 5rem;
 }
 
 .date-label h2 {

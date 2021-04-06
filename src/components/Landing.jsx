@@ -3,6 +3,7 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'; // for selectable
 import listPlugin from '@fullcalendar/list';
+import ptLocale from '@fullcalendar/core/locales/pt';
 import Axios from "axios"
 import { Link } from 'react-router-dom'
 
@@ -22,7 +23,7 @@ export default () => {
             let size = response.data.length
             for (let x = 0; x < size; x++) {
                 myVar = [ ...myVar,
-                    {backgroundColor:'#ff0202', start: response.data[x].dateHour, allDay: false}
+                    {backgroundColor:'#ff0202', start: response.data[x].dateHour}
                 ]
             }
             setDateList(myVar)
@@ -41,12 +42,19 @@ export default () => {
                 <div className="header-container">
                     <div className="logo-titulo">
                         <img className="logo" src={logo} alt="logo"/>
-                        <strong className="titulo"></strong>
+                        <strong className="titulo">Dudink.Tattoo</strong>
                     </div>
                     <div className="schedule-container">
-                        <FullCalendar 
+                        <FullCalendar
+                            eventMouseEnter={console.log("teste")}
+                            locale={ptLocale}
                             plugins={[ interactionPlugin, dayGridPlugin, listPlugin ]}
-                            initialView="dayGridMonth"
+                            initialView="dayGridWeek"
+                            headerToolbar={{
+                                left: 'prev,next today',
+                                center: 'title',
+                                right: 'dayGridMonth,dayGridWeek,dayGridDay,listWeek'
+                            }}
                             events={dateList}
                             selectable="true"
                             dateClick={( e ) => {
@@ -66,7 +74,7 @@ export default () => {
                         <div className="date-label">
                             <h2>Data selecionada: {date}</h2>
                             <Link to={`/schedule${date}`}>
-                                <button className="landing-button schedule-button">Agende um horário </button>  
+                                <button className="landing-button">Agende um horário </button>  
                             </Link>
                         </div>                        
                     </div>
