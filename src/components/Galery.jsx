@@ -15,19 +15,19 @@ export default () => {
     const [imageUrl, setImageUrl] = useState ('')
 
     useEffect(() => {
-        Axios.get(`${process.env.REACT_APP_LINK_DEV}/themes/get`).then((response) => {
+        Axios.get(`${process.env.REACT_APP_LINK_API}/themes/get`).then((response) => {
             setList(response.data)
             setTitle(response.data[0].theme)
         })
 
-        Axios.post(`${process.env.REACT_APP_LINK_DEV}/images/get`, {style: "temática"}).then((response) => {
+        Axios.post(`${process.env.REACT_APP_LINK_API}/images/get`, {style: "temática"}).then((response) => {
             setImage(response.data)
             setImageUrl(response.data[0].url)
         })
     }, [])
 
     const updateImages = (val) => {
-        Axios.post(`${process.env.REACT_APP_LINK_DEV}/images/get`, {style: val}).then((response) => {
+        Axios.post(`${process.env.REACT_APP_LINK_API}/images/get`, {style: val}).then((response) => {
             setImage(response.data)
             setImageUrl(response.data[0].url)
         })
@@ -38,7 +38,7 @@ export default () => {
             <div className="side-bar">
                 <div className="logo-titulo-sidebar">
                     <img className="logo" src={logo} alt="logo"/>
-                    <strong className="titulo">Dudink.Tattoo</strong>
+                    <strong className="titulo">Dudink.Tattoo </strong>
                 </div>  
                 <ul>
                     {list.map((val) => {
