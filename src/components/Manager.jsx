@@ -23,10 +23,10 @@ export default () => {
     const [total, setTotal] = useState(0)
 
     useEffect(() => {
-        Axios.get(`${process.env.REACT_APP_LINK_API}/client/get`).then((response) => {
+        Axios.get(`${process.env.REACT_APP_LINK_DEV}/client/get`).then((response) => {
             setDataList(response.data)
         }).then(() => {
-            Axios.get(`${process.env.REACT_APP_LINK_API}/finish/get`).then((response) => {
+            Axios.get(`${process.env.REACT_APP_LINK_DEV}/finish/get`).then((response) => {
                 let contador = 0
                 {response.data.map((val) => {
                     contador = contador + val.price

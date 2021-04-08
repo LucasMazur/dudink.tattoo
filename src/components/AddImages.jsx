@@ -15,7 +15,7 @@ export default () => {
     const [styleList, setStyleList] = useState('')
 
     useEffect(() => {
-        Axios.get(`${process.env.REACT_APP_LINK_API}/themes/get`).then((response) => {
+        Axios.get(`${process.env.REACT_APP_LINK_DEV}/themes/get`).then((response) => {
             setStyleList(response.data)
         })
     }, [])
@@ -28,9 +28,9 @@ export default () => {
             }
         })}
         if (igual !== 1) {
-            Axios.post(`${process.env.REACT_APP_LINK_API}/themes/save`, {theme: style})
+            Axios.post(`${process.env.REACT_APP_LINK_DEV}/themes/save`, {theme: style})
         }
-        Axios.post(`${process.env.REACT_APP_LINK_API}/images/save`, {imageName: imageName, url: url, style: style}).then(() => {
+        Axios.post(`${process.env.REACT_APP_LINK_DEV}/images/save`, {imageName: imageName, url: url, style: style}).then(() => {
             window.location.pathname="/addImages"
        })        
     }
