@@ -19,7 +19,7 @@ export default () => {
     const [date, setDate] = useState('Nenhuma data selecionada')
 
     useEffect(() => {
-        Axios.get(`${process.env.REACT_APP_LINK_DEV}/client/get`).then((response) => {
+        Axios.get(`${process.env.REACT_APP_LINK_API}/client/get`).then((response) => {
             let size = response.data.length
             for (let x = 0; x < size; x++) {
                 myVar = [ ...myVar,

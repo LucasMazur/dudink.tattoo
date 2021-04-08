@@ -16,19 +16,19 @@ export default (props) => {
     const id = props.id
 
     const updateData = (val) => {
-        Axios.post(`${process.env.REACT_APP_LINK_DEV}/client/update`, {name: name, date: date, hour:hour, body: body, size:size, id: id}).then(() => {
+        Axios.post(`${process.env.REACT_APP_LINK_API}/client/update`, {name: name, date: date, hour:hour, body: body, size:size, id: id}).then(() => {
         window.location.pathname="/manager"
        })        
     }
 
     const removeData = (id) => {
-        Axios.post(`${process.env.REACT_APP_LINK_DEV}/client/remove`, {del: id}).then(() => {
+        Axios.post(`${process.env.REACT_APP_LINK_API}/client/remove`, {del: id}).then(() => {
             window.location.pathname="/manager"
         })
     }
 
     const finishClient = (id) => {
-        Axios.post(`${process.env.REACT_APP_LINK_DEV}/finish/save`, {name: nameF, price: price, date: dateF}).then(() => {
+        Axios.post(`${process.env.REACT_APP_LINK_API}/finish/save`, {name: nameF, price: price, date: dateF}).then(() => {
             window.location.pathname="/manager"
         }).then(() => {removeData(id)})
     }

@@ -27,7 +27,7 @@ export default (props) => {
     const [message, setMessage] = useState('Ola, meu nome é ')
 
     // useEffect(() => {
-    //     Axios.get(`${process.env.REACT_APP_LINK_DEV}/client/get`).then((response) => {
+    //     Axios.get(`${process.env.REACT_APP_LINK_API}/client/get`).then((response) => {
     //         let size = response.data.length
     //         for (let x = 0; x < size; x++) {
     //             myVar = [ ...myVar,
@@ -39,7 +39,7 @@ export default (props) => {
     // }, [])
 
     function submitData() {
-        Axios.post(`${process.env.REACT_APP_LINK_DEV}/client/save`, {name: name, hour: hour, date: date, dateHour: dateHour, body: body, size: size}).then(() => {
+        Axios.post(`${process.env.REACT_APP_LINK_API}/client/save`, {name: name, hour: hour, date: date, dateHour: dateHour, body: body, size: size}).then(() => {
             window.location.pathname="/"
         })
     }
